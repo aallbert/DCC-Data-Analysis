@@ -1,7 +1,7 @@
 data.raw <- read.table(
   file = "./data/drug_consumption.csv",
   sep = ",", header=T, stringsAsFactors = F
-)
+);
 
 # Values for decoding the raw data; information took from the Kaggle site
 age.dict <- c(
@@ -11,13 +11,12 @@ age.dict <- c(
   '1.09449' = '45 - 54',
   '1.82213' = '55 - 64',
   '2.59171' = '65+'
-)
-
+);
 
 gender.dict <- c(
   '0.48246' = 'Female',
   '-0.48246' = 'Male'
-)
+);
 
 education.dict <- c(
   '-2.43591' = 'Left School Before 16 years',
@@ -28,8 +27,8 @@ education.dict <- c(
   '-0.05921' = 'Professional Certificate/ Diploma',
   '0.45468' = 'University Degree',
   '1.16365' = 'Masters Degree',
-  '1.98437' = 'Doctorate Degree',
-)
+  '1.98437' = 'Doctorate Degree'
+);
 
 country.dict <- c(
   '-0.09765' = 'Australia',
@@ -39,17 +38,17 @@ country.dict <- c(
   '0.21128' = 'Republic of Ireland',
   '0.96082' = 'UK',
   '-0.57009' = 'USA'
-)
+);
 
 ethnicity.dict <- c(
   '-0.50212' = 'Asian',
   '-1.10702' = 'Black',
   '1.90725' = 'Mixed-Black/Asian',
-  '0.12600' = 'Mixed-White/Asian',
+  '0.126' = 'Mixed-White/Asian',
   '-0.22166' = 'Mixed-White/Black',
   '0.11440' = 'Other',
   '-0.31685' = 'White'
-)
+);
 
 usage.dict <- c(
   'CL0' = 'Never Used',
@@ -58,5 +57,37 @@ usage.dict <- c(
   'CL3' = 'Used in Last Year',
   'CL4' = 'Used in Last Month',
   'CL5' = 'Used in Last Week',
-  'CL6' = 'Used in Last Day',
+  'CL6' = 'Used in Last Day'
+);
+
+dict.list <- list(
+  Age = age.dict,
+  Gender = gender.dict,
+  Education = education.dict,
+  Country = country.dict,
+  Ethnicity = ethnicity.dict
+);
+
+substance.cols <- c(
+  'Alcohol', 'Amphet', 'Amyl', 'Benzos', 'Caff', 'Cannabis', 'Choc', 'Coke', 'Crack', 'Ecstasy', 'Heroin', 'Ketamine', 'Legalh', 'LSD', 'Meth', 'Mushrooms', 'Nicotine', 'Semer', 'VSA'
+)
+
+# First: copying values from data.raw into data.mapped
+data.mapped <- data.raw;
+
+# Mapping the data represented as numbers using dictionaries into something more readable
+data.mapped[names(dict.list)] <- lapply(
+  names(dict.list),
+  FUN = function(col_name) {
+    dict.list[[col_name]][as.character(data.raw[[col_name]])]
+  }
+);
+
+# Mapping the consumption data represented as CL0-CL6 using dictionaries into something more readable
+data.mapped[substance.cols] <- lapply(
+  data.raw[substance.cols],
+  FUN = function(column_data) {
+    column_data <- as.character(column_data)
+    return(usage.dict[column_data])
+  }
 )

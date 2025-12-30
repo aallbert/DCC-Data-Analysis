@@ -1,0 +1,19 @@
+---
+title: "reinhold"
+author: "Reinhold Brant"
+date: today
+format: html
+---
+
+# Reinhold Part
+
+## Fragen
+
+Wie hängt Drogenkonsum von den äußeren Umständen einer Person ab?
+- Wie wirkt sich die politische Lage eines Landes aus den Konsum der Menschen aus?
+- Wie wirkt sich die demografische Lage eines Landes auf den Konsum aus?
+- Wie wirkt die sich Armut auf Konsum aus?
+- Wir wirkt sich die Ethnizität eines Menschen auf den Konsum aus?
+- Wie wirkt sich der Bildungsstand auf den Konsum aus?
+
+

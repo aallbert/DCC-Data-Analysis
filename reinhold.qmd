@@ -10,10 +10,21 @@ format: html
 ## Fragen
 
 Wie hängt Drogenkonsum von den äußeren Umständen einer Person ab?
+- Wie wirkt sich der Bildungsstand auf den Konsum aus?
 - Wie wirkt sich die politische Lage eines Landes aus den Konsum der Menschen aus?
 - Wie wirkt sich die demografische Lage eines Landes auf den Konsum aus?
 - Wie wirkt die sich Armut auf Konsum aus?
 - Wir wirkt sich die Ethnizität eines Menschen auf den Konsum aus?
-- Wie wirkt sich der Bildungsstand auf den Konsum aus?
+
+Zuerst nutze ich Skimr und head, um mir einen Überblick über die Daten zu verschaffen.
+
+### Bildungsstand und Konsum
+Der erste Gedanke, einen Zusammenhang zwischen Bildungsstand und Konsum herzustellen, ist es, nach der
+Korrelation beider Werte zu fragen. Das ist in R gut machbar. Die vorliegenden Daten, sowohl zum Bildungsstand, als auch zum Konsum des Probanden sind nicht numerisch, sondern ordinal. Der Score wird wie folgt dargestellt. Deswegen werden
+diese pro Proband mit einem numerischen Wert versehen. Dabei wird ein Konsum am letzten Tag mit einem Score von 6
+und ein Konsum vor über einem Jahrzent mit 1 bewertet. Die Scores über jede Droge werden pro Proband aufsummiert.
+Damit ist es möglich einer Person eine "Gesamtintensität" des Konsums zuzuweisen.
+
+
 
 
